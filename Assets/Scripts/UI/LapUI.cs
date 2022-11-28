@@ -9,16 +9,18 @@ public class LapUI : MonoBehaviour
     public Text txtSpeed;
     public Text txtTime;
     public Text txtBestTime;
-
+    public Text [] Checkpoint = new Text[4] ;
+    public void CheckpointCheck(int CheckpointNumber, string LapTime)
+    {
+        Checkpoint[CheckpointNumber].text = LapTime;
+    }
 
     [SerializeField] private Car car;
-
-
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-
+        
     }
+
 
     // Update is called once per frame
     void Update()
@@ -27,11 +29,13 @@ public class LapUI : MonoBehaviour
         txtSpeed.text = "Speed: " + (speed*4).ToString("0.00") + "km/h";
 
         float laptime = LapManager.instance.GetLapTime();
-        txtTime.text = "Time: " + laptime.ToString("0.00") + "s";
-        float BestTime = LapManager.instance.BestTime;
+        txtTime.text = "Time: " + laptime.ToString("0.00") + "s";        
+               
+        float BestTime = LapManager.instance.BestTime;                             
         if (BestTime != float.MaxValue)
         {
-            txtBestTime.text = "Best Time: " + BestTime.ToString("0.00") + "s";
+            txtBestTime.text = BestTime.ToString("0.00") + "s";
         }
     }
+    
 }

@@ -25,7 +25,7 @@ public class LapCollider : MonoBehaviour
         if (other.GetComponent<Car>())
         {
             IsTriggered = true;
-            LapManager.instance.CheckLaps();
+            LapManager.instance.CheckLaps();           
         }
     }
 }
