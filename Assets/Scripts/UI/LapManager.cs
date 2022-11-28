@@ -9,8 +9,8 @@ public class LapManager : MonoBehaviour
     float laptime = 0;
     float bestTime = float.MaxValue;
 
-    int Checkpointcounter = 0;
-    public LapUI LapUIinstance;
+    //int Checkpointcounter = 0;
+    //public LapUI LapUIinstance;
 
 
     public float BestTime
@@ -35,13 +35,13 @@ public class LapManager : MonoBehaviour
             bestTime = laptime;
         }
         laptime = 0;
-        Checkpointcounter = 0;
+        //Checkpointcounter = 0;
     }
 
     public void CheckLaps()
     {        
-        LapUIinstance.CheckpointCheck(Checkpointcounter, GetLapTime().ToString("0.00"));
-        Checkpointcounter++;
+        //LapUIinstance.CheckpointCheck(Checkpointcounter, laptime.ToString("0.00"));
+        //Checkpointcounter++;
         LapCollider[] laps = GameObject.FindObjectsOfType<LapCollider>();
         
         foreach (LapCollider lap in laps)
