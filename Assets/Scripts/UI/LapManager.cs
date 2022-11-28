@@ -39,7 +39,7 @@ public class LapManager : MonoBehaviour
     public void CheckLaps()
     {
         LapCollider[] laps = GameObject.FindObjectsOfType<LapCollider>();
-        Checkpoints[checkpointcounter].text = GetLapTime().ToString("0.00");
+        Checkpoints[checkpointcounter].text = "CP" + (checkpointcounter+1) +":" +  GetLapTime().ToString("0.00");
         checkpointcounter++; 
         
         foreach (LapCollider lap in laps)
