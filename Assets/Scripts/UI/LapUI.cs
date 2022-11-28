@@ -9,11 +9,6 @@ public class LapUI : MonoBehaviour
     public Text txtSpeed;
     public Text txtTime;
     public Text txtBestTime;
-    //public Text [] Checkpoint = new Text[4] ;
-    //public void CheckpointCheck(int CheckpointNumber, string LapTime)
-    //{
-    //    Checkpoint[CheckpointNumber].text = LapTime;
-    //}
 
     [SerializeField] private Car car;
     public void Start()
