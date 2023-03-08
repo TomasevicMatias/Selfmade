@@ -2,25 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ruecklicht : MonoBehaviour
+public class P1_Ruecklicht : MonoBehaviour
 {
 
-    Light light;
+    Light P1_RL;
 
     void Start()
     {
-        light = GetComponent<Light>();
+        P1_RL = GetComponent<Light>();
     }
 
     void Update()
     {
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.Space))
         {
-            light.enabled = true;
+            P1_RL.enabled = true;
         }
         else
         {
-            light.enabled = false;
+            P1_RL.enabled = false;
         }
     }
 }

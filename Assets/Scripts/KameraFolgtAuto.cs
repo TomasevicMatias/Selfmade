@@ -5,11 +5,6 @@ using UnityEngine.Rendering;
 
 public class KameraFolgtAuto : MonoBehaviour
 {
-    //TODO
-    //vielleicht eigene blender map
-    //Handbremse
-    //
-
     //Methoden
     public void LookAtTarget()
     {
@@ -29,41 +24,29 @@ public class KameraFolgtAuto : MonoBehaviour
 
         
 
+        //Auf jeweilige seite drehen
+        //Auskommentiert wegen 2-Spieler-Spiel
+        //if (Input.GetKey(KeyCode.RightArrow))
+        //{
+        //    offset.x = -4;
+        //    offset.z = 0;                      
+        //}
+        //if (Input.GetKey(KeyCode.LeftArrow))
+        //{
+        //    offset.x = 4;
+        //    offset.z = 0;
+        //}
+        //if (Input.GetKey(KeyCode.DownArrow))
+        //{
+        //    offset.z = 5;
+        //}
 
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            offset.x = -4;
-            offset.z = 0;                      
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            offset.x = 4;
-            offset.z = 0;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            offset.z = 5;
-        }
-
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            offset.z = -5;
-        }
-
-
-
-
+        //if (Input.GetKey(KeyCode.UpArrow))
+        //{
+        //    offset.z = -5;
+        //}
 
         transform.position = Vector3.Lerp(transform.position, targetPos, followSpeed * Time.deltaTime);
-    }
-
-    private void FixedUpdate() //Fixedupdate editor , lateupdate build version! es wackelt dann dem entsprechend
-    {
-        
-
-
-        LookAtTarget();
-        MoveToTarget();
     }
 
     //Variablen
@@ -72,6 +55,10 @@ public class KameraFolgtAuto : MonoBehaviour
     public float followSpeed = 10;
     public float lookSpeed = 10;
 
-
-
+    //Wird jeden frame ausgeführt(?) 
+    private void FixedUpdate() 
+    {       
+        LookAtTarget();
+        MoveToTarget();
+    }
 }
