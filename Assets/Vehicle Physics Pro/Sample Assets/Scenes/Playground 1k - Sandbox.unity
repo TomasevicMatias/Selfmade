@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13854453, g: 0.115922175, b: 0.092322595, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -656,7 +656,7 @@ MonoBehaviour:
   mass: 20
   radius: 0.36
   center: {x: -0.136, y: 0, z: 0}
-  suspensionDistance: 0.25
+  suspensionDistance: 0.55
   suspensionAnchor: 0.5
   springRate: 23537
   damperRate: 4708
@@ -2412,6 +2412,7 @@ GameObject:
   - component: {fileID: 307402709}
   - component: {fileID: 307402708}
   - component: {fileID: 307402711}
+  - component: {fileID: 307402712}
   m_Layer: 0
   m_Name: Auto (1)
   m_TagString: Untagged
@@ -2563,8 +2564,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307402703}
-  m_LocalRotation: {x: -0.006439744, y: 0.7064826, z: -0.0063563096, w: 0.70767266}
-  m_LocalPosition: {x: 614.73, y: 25.282, z: 1634.385}
+  m_LocalRotation: {x: -0.03305708, y: 0.6453367, z: 0.039042495, w: 0.7621834}
+  m_LocalPosition: {x: 671.125, y: 22.118076, z: 1648.2053}
   m_LocalScale: {x: 0.8924581, y: 0.8924581, z: 0.8924581}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2573,9 +2574,10 @@ Transform:
   - {fileID: 218532901}
   - {fileID: 106785279}
   - {fileID: 1564201714}
+  - {fileID: 871111516}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -0.008, y: 89.904, z: -1.037}
+  m_LocalEulerAnglesHint: {x: -5.784, y: 80.46, z: 0.97}
 --- !u!114 &307402708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2657,13 +2659,13 @@ MonoBehaviour:
     inertiaRow1: {x: 0, y: 2200, z: 0}
     inertiaRow2: {x: 0, y: 0, z: 400}
   steeringAids:
-    priority: 0
-    helpMode: 1
+    priority: 1
+    helpMode: 0
     helpRatio: 1
     helpGravity: 0.4
-    limitMode: 0
+    limitMode: 2
     limitRatio: 1
-    limitProportionality: 1
+    limitProportionality: 0.9
     limitCustomSlip: 2
   speedControl:
     cruiseControl: 0
@@ -2696,7 +2698,7 @@ MonoBehaviour:
     efficiency: 1
   differential:
     type: 2
-    gearRatio: 3.7
+    gearRatio: 4.1
     preload: 0
     powerStiffness: 0.2
     coastStiffness: 0.2
@@ -2735,17 +2737,17 @@ MonoBehaviour:
     coastRatio: 5
   torqueSplitter:
     preload: 0
-    stiffness: 0.5
+    stiffness: 0.6
   steering:
-    maxSteerAngle: 40
+    maxSteerAngle: 50
     toeAngle: 0
     ackerman: 0
-    ackermanReference: {fileID: 0}
+    ackermanReference: {fileID: 871111516}
     ratioReference: {fileID: 0}
   brakes:
-    maxBrakeTorque: 2000
-    brakeBias: 0.7
-    handbrakeTorque: 2000
+    maxBrakeTorque: 2800
+    brakeBias: 0.65
+    handbrakeTorque: 1500
     handbrakeAxle: 0
     combinedRetarderBrake: 0
     fullBrakeThreshold: 0.8
@@ -2753,8 +2755,8 @@ MonoBehaviour:
     model: 3
     settings:
       adherentFriction: 0.95
-      peak: {x: 1.5, y: 1.1}
-      limit: {x: 6, y: 0.8}
+      peak: {x: 2, y: 1.2}
+      limit: {x: 12, y: 0.95}
       a: 0.9
       b: 0
       c: 0
@@ -2768,26 +2770,26 @@ MonoBehaviour:
     frictionMultiplier: 1
     maxAdherentSpeed: 6.388889
   engine:
-    idleRpm: 1000
-    peakRpm: 5000
-    maxRpm: 5010
-    idleRpmTorque: 150
+    idleRpm: 1100
+    peakRpm: 8336
+    maxRpm: 9000
+    idleRpmTorque: 106
     peakRpmTorque: 188
-    idleRpmCurveBias: 0
+    idleRpmCurveBias: 0.957
     peakRpmCurveBias: 0
-    inertia: 0.5
-    frictionTorque: 30
-    rotationalFriction: 0.1
-    viscousFriction: 0.01
-    torqueCap: 0
-    torqueCapLimit: 200
-    rpmLimiter: 0
+    inertia: 0.15
+    frictionTorque: 20
+    rotationalFriction: 0.06
+    viscousFriction: 0.007
+    torqueCap: 1
+    torqueCapLimit: 210
+    rpmLimiter: 1
     rpmLimiterMode: 0
-    rpmLimiterMax: 6000
+    rpmLimiterMax: 8700
     rpmLimiterCutoffTime: 0.075
     idleControl: 1
-    maxIdleThrottle: 1
-    activeIdleRange: 0.5
+    maxIdleThrottle: 0.8
+    activeIdleRange: 0.25
     activeIdleBias: 0.25
     canStall: 0
     stallBias: 0.5
@@ -2800,7 +2802,7 @@ MonoBehaviour:
     type: 2
     maxTorqueTransfer: 300
     unlockRpm: 0
-    lockRpm: 2000
+    lockRpm: 2500
     lockRatioBias: 0.1
   gearbox:
     type: 0
@@ -2815,13 +2817,13 @@ MonoBehaviour:
     auto2ndGearMinSpeed: 8
     parkRequiresStopAndBrakes: 0
     allowParkInManual: 0
-    manualShiftTime: 0.25
+    manualShiftTime: 0.15
     autoShift: 1
-    autoShiftNeutralRpm: 800
-    autoShiftFirstGearRpm: 1000
-    autoShiftDownRevs: 1900
-    autoShiftUpRevs: 3500
-    autoShiftThrottleSens: 0
+    autoShiftNeutralRpm: 1200
+    autoShiftFirstGearRpm: 3000
+    autoShiftDownRevs: 3400
+    autoShiftUpRevs: 6500
+    autoShiftThrottleSens: 1
     autoShiftThrottleSensMin: 0.6
     autoShiftFullThrottleDownRevs: 3000
     autoShiftFullThrottleUpRevs: 4500
@@ -2840,7 +2842,7 @@ MonoBehaviour:
     automaticInitialGearForward: 1
     automaticInitialGearReverse: -1
   antiLock:
-    enabled: 0
+    enabled: 1
     mode: 0
     trigger: 0
     minSlipOffset: 0.3
@@ -2851,17 +2853,17 @@ MonoBehaviour:
     valvePositions: 2
   tractionControl:
     enabled: 1
-    mode: 1
+    mode: 2
     ratio: 1
-    customSlip: 2
+    customSlip: 2.1
   stabilityControl:
     enabled: 1
     minSpeed: 6
-    understeerMinRate: 0.5
-    understeerMaxRate: 1.5
+    understeerMinRate: 0.7157032
+    understeerMaxRate: 1.7157032
     understeerMinSpeed: 6
-    oversteerMinAngle: 4
-    oversteerMaxAngle: 12
+    oversteerMinAngle: 6.0851307
+    oversteerMaxAngle: 14.085131
     oversteerMinSpeed: 10
   antiSpin:
     enabled: 0
@@ -2883,6 +2885,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e3ef0a4b4488724c9b4715f97395ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &307402712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307402703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79617879148cc214980cddb37872bc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &313319660
@@ -4857,7 +4871,7 @@ MonoBehaviour:
   mass: 20
   radius: 0.36
   center: {x: 0.14, y: 0, z: 0}
-  suspensionDistance: 0.13
+  suspensionDistance: 0.55
   suspensionAnchor: 0.5
   springRate: 23537
   damperRate: 4708
@@ -4952,7 +4966,7 @@ MonoBehaviour:
   mass: 20
   radius: 0.36
   center: {x: -0.136, y: 0, z: 0}
-  suspensionDistance: 0.25
+  suspensionDistance: 0.35
   suspensionAnchor: 0.5
   springRate: 23537
   damperRate: 4708
@@ -5241,7 +5255,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11499500, guid: 08bcacdc13ed1d648bde90a28ef6ebc5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 08bcacdc13ed1d648bde90a28ef6ebc5, type: 3}
 --- !u!1 &826981607
 GameObject:
@@ -5718,6 +5733,37 @@ Transform:
   - {fileID: 975530301}
   m_Father: {fileID: 1142447917}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &871111515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 871111516}
+  m_Layer: 0
+  m_Name: Ackerman
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &871111516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871111515}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.39, z: -1.58}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 307402707}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &902691741
 GameObject:
@@ -9537,7 +9583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564201713}
   m_LocalRotation: {x: 0.02796569, y: -0.70595825, z: 0.027918553, w: 0.7071503}
-  m_LocalPosition: {x: -0.071, y: 0.901, z: 0.142}
+  m_LocalPosition: {x: -0.04, y: 0.45, z: 0.32}
   m_LocalScale: {x: 1.1205007, y: 1.1205008, z: 1.1205007}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9709,10 +9755,10 @@ MonoBehaviour:
   mass: 20
   radius: 0.36
   center: {x: 0.14, y: 0, z: 0}
-  suspensionDistance: 0.25
+  suspensionDistance: 0.35
   suspensionAnchor: 0.5
-  springRate: 23537
-  damperRate: 4708
+  springRate: 20000
+  damperRate: 4000
   suspensionTransform: {fileID: 0}
   caliperTransform: {fileID: 0}
   wheelTransform: {fileID: 224840911}
@@ -10792,7 +10838,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718771023}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12720,8 +12766,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044785872}
-  m_LocalRotation: {x: -0.050438937, y: -0, z: -0, w: 0.99872714}
-  m_LocalPosition: {x: -2.269, y: 1.282, z: -0.35}
+  m_LocalRotation: {x: -0.048423238, y: 0.000000059604638, z: 0.0000000051222737, w: 0.998827}
+  m_LocalPosition: {x: -2.269, y: 1.194, z: -0.321}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12731,7 +12777,7 @@ Transform:
   - {fileID: 1142447917}
   m_Father: {fileID: 307402707}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -5.551, y: 0, z: 0}
 --- !u!1 &2061300256
 GameObject:
   m_ObjectHideFlags: 0
@@ -13250,6 +13296,14 @@ PrefabInstance:
     - target: {fileID: 4526226863634622810, guid: a85181e3e46127a4eabf592088aeba8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080676525755444315, guid: a85181e3e46127a4eabf592088aeba8a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080676525755444315, guid: a85181e3e46127a4eabf592088aeba8a, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a85181e3e46127a4eabf592088aeba8a, type: 3}

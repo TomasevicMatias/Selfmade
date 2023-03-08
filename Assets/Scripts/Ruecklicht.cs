@@ -14,7 +14,7 @@ public class Ruecklicht : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.Space))
         {
             light.enabled = true;
         }
